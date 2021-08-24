@@ -1,27 +1,59 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
   StyleSheet,
   TextInput,
   Platform,
-  TouchableOpacity,
+  FlatList,
 } from "react-native";
 
+import { Button } from "../components/Button";
+import { SkillCard } from "../components/SkillCard";
+
 export function Home() {
+  const [newSkill, setNewSkill] = useState("");
+  const [mySkills, setMySkills] = useState([]);
+  const [greeting, setGreeting] = useState("");
+
+  function handleAddNewSkill() {
+    setMySkills((oldState) => [...oldState, newSkill]);
+  }
+
+  useEffect(() => {
+    const currentHour = new Date().getHours();
+
+    if (currentHour < 12) {
+      setGreeting("Good morning");
+    } else if (currentHour >= 12 && currentHour < 18) {
+      setGreeting("Good afternoon");
+    } else {
+      setGreeting("Good night");
+    }
+  }, []);
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Welcome Mr Rioja</Text>
+      <Text style={styles.title}>Welcome, Rioja</Text>
+      <Text style={styles.greetings}>{greeting}</Text>
+
       <TextInput
         style={styles.input}
         placeholder="New skill"
         placeholderTextColor="#555"
+        onChangeText={setNewSkill}
       />
-      <TouchableOpacity style={styles.button} activeOpacity={0.7}>
-        <Text style={styles.buttonText}>Add</Text>
-      </TouchableOpacity>
 
-      <Text style={[styles.title, { marginTop: 50 }]}>My Skills</Text>
+      <Button onPress={handleAddNewSkill} />
+
+      <Text style={[styles.title, { marginVertical: 50 }]}>My Skills</Text>
+
+      <FlatList
+        data={mySkills}
+        showsVerticalScrollIndicator={false}
+        keyExtractor={(item) => item}
+        renderItem={({ item }) => <SkillCard skill={item} />}
+      />
     </View>
   );
 }
@@ -36,6 +68,8 @@ const styles = StyleSheet.create({
   },
   title: {
     color: "#fff",
+    fontSize: 24,
+    fontWeight: "bold",
   },
   input: {
     backgroundColor: "#1f1e25",
@@ -45,16 +79,7 @@ const styles = StyleSheet.create({
     marginTop: 30,
     borderRadius: 7,
   },
-  button: {
-    backgroundColor: "#a370f7",
-    padding: 15,
-    borderRadius: 7,
-    alignItems: "center",
-    marginTop: 20,
-  },
-  buttonText: {
+  greetings: {
     color: "#fff",
-    fontSize: 17,
-    fontWeight: "bold",
   },
 });
