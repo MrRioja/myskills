@@ -1,4 +1,4 @@
-package com.myskills;
+package com.lr_myskills;
 
 import android.content.Intent;
 import android.os.Bundle;
