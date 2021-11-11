@@ -9,8 +9,8 @@ buildscript {
         ndkVersion = "20.1.5948944"
     }
     repositories {
-        google()
         mavenCentral()
+        google()
     }
     dependencies {
         classpath('com.android.tools.build:gradle:7.0.3')
