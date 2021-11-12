@@ -61,3 +61,4 @@ buck-out/
 
 # my editions
 resources
+*.aab
