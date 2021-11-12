@@ -95,12 +95,12 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   input: {
-    backgroundColor: "#1f1e25",
-    color: "#fff",
     fontSize: 18,
-    padding: Platform.OS === "ios" ? 15 : 10,
     marginTop: 30,
     borderRadius: 7,
+    color: "#fff",
+    backgroundColor: "#1f1e25",
+    padding: Platform.OS === "ios" ? 15 : 10,
   },
   greetings: {
     color: "#fff",
