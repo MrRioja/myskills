@@ -12,6 +12,9 @@ import com.facebook.soloader.SoLoader;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
+// Code Push
+import com.microsoft.codepush.react.CodePush;
+
 public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost =
@@ -19,6 +22,12 @@ public class MainApplication extends Application implements ReactApplication {
         @Override
         public boolean getUseDeveloperSupport() {
           return BuildConfig.DEBUG;
+        }
+
+        // Code Push
+        @Override
+        protected String getJSBundleFile() {
+            return CodePush.getJSBundleFile();
         }
 
         @Override
