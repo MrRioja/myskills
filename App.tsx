@@ -16,8 +16,6 @@ Sentry.init({
 
 function App() {
   useEffect(() => {
-    throw new Error("My first Sentry error!");
-
     codePush.sync({
       installMode: codePush.InstallMode.IMMEDIATE,
     });
