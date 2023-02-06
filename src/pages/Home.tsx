@@ -27,6 +27,7 @@ export function Home() {
       name: newSkill,
     };
 
+    setNewSkill("");
     setMySkills((oldState) => [...oldState, data]);
   }
 
@@ -52,11 +53,12 @@ export function Home() {
       <Text style={styles.greetings}>{greeting}</Text>
 
       <TextInput
+        value={newSkill}
         testID="input-new"
         style={styles.input}
         placeholder="New skill"
-        placeholderTextColor="#555"
         onChangeText={setNewSkill}
+        placeholderTextColor="#555"
       />
 
       <Button testID="button-add" title="Add" onPress={handleAddNewSkill} />
