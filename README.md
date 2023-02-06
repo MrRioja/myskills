@@ -37,7 +37,7 @@ A aplicação é bem simples e possui apenas a tela abaixo, onde estão contidas
 
 Como visto acima, possuímos um campo de texto e um botão.É através dele que adicionamos novas habilidades. Após informar uma nova skill e clicar no botão teremos a seguinte visualização:
 
-<img src="home.png" alt="Home" width="350" />
+<img src="./.github/home.png" alt="Home" width="350" />
 
 Para excluir alguma skill, basta busca-la na lista e clicar sobre ela.
 Afim de ilustrar o fluxo do app em sua totalidade, deixo abaixo uma demonstração de uso aonde passo por todas suas funcionalidades:
